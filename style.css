@@ -1,0 +1,20 @@
+body {
+    font-family: 'Comic Sans MS', sans-serif;
+    text-align: center;
+    background-color: #e0f7fa;
+}
+
+#frog {
+    width: 100px;
+    height: 100px;
+    background-image: url('frog.png'); /* Изображение лягушки */
+    background-size: cover;
+    cursor: pointer;
+    margin: 50px auto;
+}
+
+#score, #energy {
+    font-size: 24px;
+    color: #004d40;
+    margin: 20px;
+}
