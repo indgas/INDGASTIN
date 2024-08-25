@@ -1,21 +1,37 @@
 let score = localStorage.getItem('score') ? parseInt(localStorage.getItem('score')) : 0;
-let energy = 100; // Начальная энергия
+let energy = localStorage.getItem('energy') ? parseInt(localStorage.getItem('energy')) : 300; // Загрузка энергии из localStorage или установка на максимум
+
+const maxEnergy = 300; // Максимальное значение энергии
 
 // Обновляем отображение начальных очков и энергии
 document.getElementById('score').innerText = `Score: ${score}`;
-document.getElementById('energy-bar').style.width = `${energy}%`;
+document.getElementById('energy-bar').style.width = `${(energy / maxEnergy) * 100}%`;
+document.getElementById('energy-text').innerText = `${energy}/${maxEnergy}`; // Отображение количества энергии
+
+// Функция восстановления энергии
+function restoreEnergy() {
+    if (energy < maxEnergy) {
+        energy = Math.min(maxEnergy, energy + 3); // Восстанавливаем 3 единицы энергии, максимум до 300
+        document.getElementById('energy-bar').style.width = `${(energy / maxEnergy) * 100}%`;
+        document.getElementById('energy-text').innerText = `${energy}/${maxEnergy}`; // Обновление текста энергии
+        localStorage.setItem('energy', energy); // Сохраняем обновленное значение энергии в localStorage
+    }
+}
 
 document.getElementById('frog').addEventListener('click', () => {
-    score++;
-    energy = Math.max(0, energy - 1); // Уменьшение энергии на 1 при каждом клике
+    if (energy > 0) {
+        score++;
+        energy = Math.max(0, energy - 1); // Уменьшение энергии на 1 при каждом клике
 
-    document.getElementById('score').innerText = `Score: ${score}`;
-    document.getElementById('energy-bar').style.width = `${energy}%`;
+        document.getElementById('score').innerText = `Score: ${score}`;
+        document.getElementById('energy-bar').style.width = `${(energy / maxEnergy) * 100}%`;
+        document.getElementById('energy-text').innerText = `${energy}/${maxEnergy}`; // Обновление текста энергии
 
-    // Сохраняем новое значение очков в localStorage
-    localStorage.setItem('score', score);
+        // Сохраняем новое значение очков и энергии в localStorage
+        localStorage.setItem('score', score);
+        localStorage.setItem('energy', energy);
+    }
 });
-const energyCost = 1; // Стоимость одного клика
 
 // Получаем элементы из HTML
 const frog = document.getElementById('frog');
@@ -41,7 +57,7 @@ function tapFrog() {
 
 // Функция восстановления энергии
 function regenerateEnergy() {
-    if (energy < 100) { // Ограничиваем энергию 100 единицами
+    if (energy < 300) { // Ограничиваем энергию 300 единицами
         energy++;
         updateDisplay(); // Обновляем отображение
     }
@@ -52,5 +68,3 @@ frog.addEventListener('click', tapFrog);
 
 // Таймер для восстановления энергии
 setInterval(regenerateEnergy, 1000); // Восстановление энергии каждую секунду
-
-
