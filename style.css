@@ -1,64 +1,66 @@
-body {
-    text-align: center;
-    font-family: Arial, sans-serif;
-    background-image: url('prud.png'); /* Замените на путь к вашей фотографии пруда */
-    background-size: cover;
-    background-repeat: no-repeat;
+body, html {
     margin: 0;
     padding: 0;
-    color: #fff; /* Для улучшения видимости текста на фоне */
+    height: 100%;
+    overflow: hidden;
 }
 
-#score-container {
-    margin-top: 20px;
+#app {
     position: relative;
+    width: 100%;
+    height: 100%;
 }
 
-#score {
-    font-size: 24px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Добавление тени для улучшения читаемости текста */
-}
-
-#frog-container {
-    position: relative;
-    display: inline-block;
-    margin: 0 auto; /* Центрирование по горизонтали */
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 250px;
-    height: 250px;
+#background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Фон позади всех элементов */
 }
 
 #frog {
-    width: 200px;
-    height: 200px;
-    background-image: url('frog.png'); /* Изображение лягушки */
-    background-size: cover;
-    cursor: pointer;
-    margin-bottom: 10px;
+    position: absolute;
+    left: 50%; /* Центрирование по горизонтали */
+    top: 50%; /* Центрирование по вертикали */
+    transform: translate(20%, -50%); /* Сдвиг чуть правее и точно по центру */
+    width: 150px; /* Настройте размер лягушки по необходимости */
 }
 
-#energy-bar-container {
-    width: 200px;
+#score {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    color: white;
+    z-index: 10;
+}
+
+#energy-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
     height: 20px;
-    background-color: #ddd;
+    background-color: rgba(255, 255, 255, 0.3);
     border-radius: 10px;
-    overflow: hidden;
-    margin: 20px auto; /* Центрирование по горизонтали */
-    position: relative;
 }
 
 #energy-bar {
     width: 100%;
     height: 100%;
-    background-color: #76c7c0;
+    background-color: green;
+    border-radius: 10px;
 }
 
 #energy-text {
     position: absolute;
     right: 10px;
-    top: -25px;
-    font-size: 18px;
-    color: #fff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Добавление тени для улучшения читаемости текста */
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 14px;
 }
