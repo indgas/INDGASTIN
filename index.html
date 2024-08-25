@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tap the Frog</title>
-    <link rel="stylesheet" href="style.css"> <!-- Подключение CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <h1>Tap the Frog</h1>
-    <div id="frog"></div> <!-- Лягушка для кликов -->
-    <div id="score">Score: 0</div> <!-- Отображение очков -->
-    <div id="energy">Energy: 100</div> <!-- Отображение энергии -->
+    <div id="frog-container">
+        <div id="frog"></div>
+        <div id="energy-bar-container">
+            <div id="energy-bar"></div>
+        </div>
+    </div>
+    <div id="score">Score: 0</div>
 
-    <script src="game.js"></script> <!-- Подключение JavaScript -->
+    <script src="game.js"></script>
 </body>
 </html>
