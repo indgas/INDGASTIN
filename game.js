@@ -1,6 +1,20 @@
-// Инициализация переменных
-let score = 0; // Очки
+let score = localStorage.getItem('score') ? parseInt(localStorage.getItem('score')) : 0;
 let energy = 100; // Начальная энергия
+
+// Обновляем отображение начальных очков и энергии
+document.getElementById('score').innerText = `Score: ${score}`;
+document.getElementById('energy-bar').style.width = `${energy}%`;
+
+document.getElementById('frog').addEventListener('click', () => {
+    score++;
+    energy = Math.max(0, energy - 1); // Уменьшение энергии на 1 при каждом клике
+
+    document.getElementById('score').innerText = `Score: ${score}`;
+    document.getElementById('energy-bar').style.width = `${energy}%`;
+
+    // Сохраняем новое значение очков в localStorage
+    localStorage.setItem('score', score);
+});
 const energyCost = 1; // Стоимость одного клика
 
 // Получаем элементы из HTML
@@ -38,3 +52,5 @@ frog.addEventListener('click', tapFrog);
 
 // Таймер для восстановления энергии
 setInterval(regenerateEnergy, 1000); // Восстановление энергии каждую секунду
+
+
