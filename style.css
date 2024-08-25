@@ -1,20 +1,30 @@
 body {
-    font-family: 'Comic Sans MS', sans-serif;
     text-align: center;
-    background-color: #e0f7fa;
+    font-family: Arial, sans-serif;
 }
-
+#frog-container {
+    position: relative;
+    display: inline-block;
+    margin: 20px auto;
+}
 #frog {
-    width: 100px;
-    height: 100px;
-    background-image: url('frog.png'); /* Изображение лягушки */
+    width: 200px; /* Размер лягушки (можно изменить) */
+    height: 200px;
+    background-image: url('frog.png'); /* Замените на имя вашего файла с лягушкой */
     background-size: cover;
     cursor: pointer;
-    margin: 50px auto;
+    margin-bottom: 10px;
 }
-
-#score, #energy {
-    font-size: 24px;
-    color: #004d40;
-    margin: 20px;
+#energy-bar-container {
+    width: 200px;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+#energy-bar {
+    width: 100%;
+    height: 100%;
+    background-color: #76c7c0;
 }
