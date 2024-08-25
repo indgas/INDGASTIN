@@ -28,10 +28,19 @@ body, html {
     width: 150px; /* Настройте размер лягушки по необходимости */
 }
 
-#score {
+#score-sticker {
     position: absolute;
     top: 10px;
     left: 50%;
+    transform: translateX(-100%); /* Сместить стикер на место перед текстом */
+    height: 24px; /* Размер стикера совпадает с размером текста */
+    z-index: 10;
+}
+
+#score {
+    position: absolute;
+    top: 10px;
+    left: calc(50% + 15px); /* Отодвигаем текст немного вправо от стикера */
     transform: translateX(-50%);
     font-size: 24px;
     color: white;
