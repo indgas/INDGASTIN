@@ -1,7 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api');
 const token = '7531617907:AAGMOyDoaCnIAhUIY698QwkejD_1NW4KAFE';
 const bot = new TelegramBot(token, { polling: true });
-bot.start((ctx) => {
+bot.onText(/\/start/, (msg) => {
     const refCode = ctx.message.text.split(' ')[1];
     
     if (refCode && refCode.startsWith('ref_')) {
