@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tap the Frog</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <h1>Tap the Frog</h1>
+    <div id="app">
+        <ul class="tabs">
+            <li class="tab-link" data-tab="main"><i class="fas fa-home"></i> Главная</li>
+            <li class="tab-link" data-tab="friends"><i class="fas fa-users"></i> Друзья</li>
+            <li class="tab-link" data-tab="upgrades"><i class="fas fa-puzzle-piece"></i> Улучшения</li>
+        </ul>
+    
+        <div id="main" class="tab-content active">
+            <img src="prud.png" id="background" alt="Pond background">
+            <img src="frogsticker.png" id="score-sticker" alt="Frog sticker">
+            <img src="frog.png" id="frog" alt="Frog">
+            <div class="score-container">
+                <span class="score-value" id="score">1234</span>
+            </div>
+            <div id="energy-container">
+                <div id="energy-text">150/300</div>
+                <div id="energy-bar"></div>
+            </div>    
+        </div>
+    
+        <div id="friends" class="tab-content">
+            <h2>Друзья</h2>
+            <p>Приглашайте друзей и зарабатывайте награды!</p>
+            <p>Ваша реферальная ссылка:</p>
+            <input type="text" id="referral-link" readonly>
+        </div>
+        
+        
+        <div id="upgrades" class="tab-content">
+            <h2>Улучшения</h2>
+            <p>Здесь можно будет покупать улучшения.</p>
+        </div>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>

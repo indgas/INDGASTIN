@@ -1,0 +1,147 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1; /* Это позволяет основному контенту занимать оставшееся пространство */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#app {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    background-color: #fa0b0b;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+}
+.tab {
+    text-align: center;
+    flex: 1;
+}
+
+.tab img {
+    width: 24px; /* Размер иконки */
+    height: 24px;
+}
+
+.tab span {
+    display: block;
+    font-size: 12px;
+    color: #333;
+}
+
+.tab-link {
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Расстояние между иконкой и текстом */
+}
+
+.tab-link i {
+    font-size: 20px; /* Размер иконок */
+}
+
+.tab-link:hover {
+    background-color: #444;
+}
+
+.tab-content {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: calc(100% - 50px); /* Отнимаем высоту панели вкладок */
+}
+
+.tab-content.active {
+    display: block;
+}
+
+#friends, #upgrades {
+    padding: 20px;
+    color: white;
+    background-color: #222;
+}
+#main { #background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: blur(8px); /* Устанавливаем размытие фона */
+    transform: scale(1.05); /* Немного увеличиваем фон, чтобы избежать видимых краев при размытии */
+}
+#frog {
+    position: absolute;
+    left: 50%; /* Центрирование по горизонтали */
+    top: 50%; /* Центрирование по вертикали */
+    transform: translate(-40%, -60%); 
+    width: 300px; /* Настройте размер лягушки по необходимости */
+}
+}
+
+#score-sticker {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-100%); /* Сместить стикер на место перед текстом */
+    height: 50px;
+    z-index: 10;
+}
+
+#score {
+    position: absolute;
+    top: 10px;
+    left: calc(53% + 15px); /* Отодвигаем текст немного вправо от стикера */
+    transform: translateX(-50%);
+    font-size: 45px;
+    color: white;
+    z-index: 10;
+}
+
+#energy-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%; /* Делаем шкалу длиннее */
+    height: 20px;
+    background-color: rgba(6, 14, 246, 0.3);
+    border-radius: 10px;
+    display: flex;
+    align-items: center; /* Центрируем содержимое по вертикали */
+    padding: 0 10px; /* Добавляем отступы по бокам */
+    margin-bottom: 20px; /* Добавляем отступ перед вкладками */
+}
+
+#energy-bar {
+    flex-grow: 1; /* Шкала энергии будет занимать все доступное пространство */
+    height: 100%;
+    background-color: rgb(53, 10, 147);
+    border-radius: 10px;
+}
+
+#energy-text {
+    margin-right: 10px; /* Отступ справа от текста энергии */
+    color: white;
+    font-size: 14px;
+}
