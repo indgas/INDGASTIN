@@ -5,24 +5,6 @@ const bot = new TelegramBot(token, { polling: true });
 
 bot.start((ctx) => {
     const refCode = ctx.message.text.split(' ')[1];
-    
-    if (refCode && refCode.startsWith('ref_')) {
-        const inviterId = refCode.split('_')[1];
-        const newUserId = ctx.from.id;
-        const username = ctx.from.username;
-
-        // Добавляем нового пользователя в базу данных
-        addPlayer(newUserId, username);
-
-        // Добавляем пригласившего как друга для нового пользователя
-        addFriend(inviterId, newUserId);
-
-        ctx.reply(`Добро пожаловать, ${username}! Вы приглашены пользователем с ID ${inviterId}.`);
-    } else {
-        // Обычный старт без реферального кода
-        ctx.reply('Добро пожаловать в игру!');
-    }
-});
  {
         reply_markup: {
             inline_keyboard: [
